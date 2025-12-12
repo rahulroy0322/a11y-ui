@@ -1,0 +1,40 @@
+{
+  "name": "a11y-ui",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "check": "turbo run check",
+    "check:fix": "turbo run check:fix",
+    "check-types": "turbo run check-types"
+  },
+  "devDependencies": {
+    "turbo": "^2.6.3",
+    "typescript": "^5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahulroy0322/a11y-ui.git"
+  },
+  "keywords": [
+    "ui",
+    "a11y",
+    "tailwind",
+    "elements",
+    "components",
+    "accessibility"
+  ],
+  "author": "Rahul Roy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rahulroy0322/a11y-ui/issues"
+  },
+  "homepage": "https://github.com/rahulroy0322/a11y-ui#readme",
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=18"
+  }
+}
