@@ -1,8 +1,9 @@
 'use client'
-import { AriaButtonOptions, useButton } from '@react-aria/button'
+import { type AriaButtonOptions, useButton } from '@react-aria/button'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { FC, ReactNode, useRef } from 'react'
+import { type FC, type ReactNode, useRef } from 'react'
 import { cn } from '@/utils/ui'
+import { Slot } from './slot'
 
 type ButtonPropsType = Omit<
   AriaButtonOptions<'button'>,
@@ -11,6 +12,7 @@ type ButtonPropsType = Omit<
   VariantProps<typeof buttonTypes> & {
     children: ReactNode
     className?: string
+    asChild?: boolean
   }
 
 const buttonTypes = cva(
@@ -18,7 +20,7 @@ const buttonTypes = cva(
   {
     variants: {
       type: {
-        main: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/90',
         tertiary: 'bg-accent text-accent-foreground hover:bg-accent/90',
@@ -38,26 +40,35 @@ const buttonTypes = cva(
       },
     },
     defaultVariants: {
-      type: 'main',
+      type: 'primary',
       size: 'base',
     },
   }
 )
 
-const Button: FC<ButtonPropsType> = ({ children, type, size, ...props }) => {
+const Button: FC<ButtonPropsType> = ({
+  asChild = false,
+  type,
+  size,
+  children,
+  className,
+  ...props
+}) => {
   const bRef = useRef<HTMLButtonElement>(null)
 
   const { buttonProps, isPressed } = useButton(props, bRef)
 
+  const Comp = asChild ? Slot : 'button'
+
   return (
-    <button
+    <Comp
       {...buttonProps}
-      className={cn(buttonTypes({ type, size }), {
+      className={cn(buttonTypes({ type, size, className }), {
         'scale-95': isPressed,
       })}
       ref={bRef}>
       {children}
-    </button>
+    </Comp>
   )
 }
 
