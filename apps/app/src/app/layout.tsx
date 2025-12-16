@@ -18,7 +18,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`antialiased darko`}>
+      <body className={`antialiased dark`}>
         <ul className="flex p-1 gap-2">
           <li>
             <Button

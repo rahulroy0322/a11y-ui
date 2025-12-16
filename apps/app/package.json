@@ -34,6 +34,7 @@
     "@react-stately/collections": "^3.12.8",
     "@react-stately/list": "^3.13.1",
     "@react-stately/select": "^3.8.0",
+    "@react-stately/slider": "^3.7.2",
     "@react-stately/toggle": "^3.9.2",
     "@react-types/shared": "^3.32.1",
     "class-variance-authority": "^0.7.1",
