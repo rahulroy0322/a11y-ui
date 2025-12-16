@@ -4,10 +4,8 @@ import { Input } from '../ui/input'
 
 const InputsComponent: FC = () => {
   return (
-    <div className='flex flex-col gap-6 w-3/4 max-w-xl'>
-      <Input
-        label={'User Name'}
-      />
+    <div className="flex flex-col gap-6 w-3/4 max-w-xl">
+      <Input label={'User Name'} />
       <Input
         label={'Email'}
         mode="email"

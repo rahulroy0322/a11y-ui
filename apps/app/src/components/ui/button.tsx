@@ -74,6 +74,4 @@ const Button: FC<ButtonPropsType> = ({
 
 export { Button }
 
-export type {
-  ButtonPropsType
-}
+export type { ButtonPropsType }
