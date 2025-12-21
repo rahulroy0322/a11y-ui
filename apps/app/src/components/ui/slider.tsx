@@ -1,5 +1,4 @@
 'use client'
-
 import { useFocusRing } from '@react-aria/focus'
 import {
   type AriaSliderProps,
@@ -10,13 +9,13 @@ import { mergeProps } from '@react-aria/utils'
 // // TODO!
 // import { useNumberFormatter } from 'react-aria'
 import { useSliderState } from '@react-stately/slider'
-import {
+import type {
   DOMAttributes,
   FocusableElement,
   Orientation,
 } from '@react-types/shared'
-import { cva, VariantProps } from 'class-variance-authority'
-import { FC, useRef } from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { type FC, useRef } from 'react'
 import { cn } from '@/utils/ui'
 
 type ThumbPropsType = DOMAttributes<FocusableElement>

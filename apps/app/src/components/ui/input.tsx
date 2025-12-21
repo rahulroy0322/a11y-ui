@@ -1,7 +1,7 @@
 'use client'
 import { type AriaTextFieldOptions, useTextField } from '@react-aria/textfield'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { FC, ReactNode, useRef } from 'react'
+import { type FC, type ReactNode, useRef } from 'react'
 import { cn } from '@/utils/ui'
 
 type InputPropsType = Omit<

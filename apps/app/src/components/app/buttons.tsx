@@ -1,5 +1,5 @@
 import { Sun } from 'lucide-react'
-import { FC } from 'react'
+import type { FC } from 'react'
 import { Button } from '../ui/button'
 
 const ButtonsComponent: FC = () => {

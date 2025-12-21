@@ -1,5 +1,5 @@
 'use client'
-import { FC } from 'react'
+import type { FC } from 'react'
 import { Input } from '../ui/input'
 
 const InputsComponent: FC = () => {

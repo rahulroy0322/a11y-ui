@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import type { FC } from 'react'
 import { Badge } from '../ui/badge'
 
 const BadgesComponent: FC = () => {

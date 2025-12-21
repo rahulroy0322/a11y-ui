@@ -1,5 +1,5 @@
 'use client'
-import { FC } from 'react'
+import type { FC } from 'react'
 import { Select, SelectItem, SelectTrigger } from '@/components/ui/select'
 
 const SelectsComponent: FC = () => {

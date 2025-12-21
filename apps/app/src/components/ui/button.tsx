@@ -38,10 +38,15 @@ const buttonTypes = cva(
         'logo-large': 'size-12 p-1',
         'logo-small': 'size-8 p-1',
       },
+      shape: {
+        square: 'rounded-none',
+        rounded: 'rounded-md',
+      },
     },
     defaultVariants: {
       type: 'primary',
       size: 'base',
+      shape: 'square',
     },
   }
 )
@@ -50,6 +55,7 @@ const Button: FC<ButtonPropsType> = ({
   asChild = false,
   type,
   size,
+  shape,
   children,
   className,
   ...props
@@ -63,9 +69,17 @@ const Button: FC<ButtonPropsType> = ({
   return (
     <Comp
       {...buttonProps}
-      className={cn(buttonTypes({ type, size, className }), {
-        'scale-95': isPressed,
-      })}
+      className={cn(
+        buttonTypes({
+          type,
+          size,
+          shape,
+          className,
+        }),
+        {
+          'scale-95': isPressed,
+        }
+      )}
       ref={bRef}>
       {children}
     </Comp>

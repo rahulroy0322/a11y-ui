@@ -18,7 +18,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`antialiased dark`}>
+      <body className={`antialiased dark flex flex-col h-screen`}>
         <ul className="flex p-1 gap-2">
           <li>
             <Button
@@ -37,7 +37,7 @@ export default async function RootLayout({
             </li>
           ))}
         </ul>
-        {children}
+        <main className="grow overflow-auto">{children}</main>
       </body>
     </html>
   )

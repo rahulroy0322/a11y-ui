@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import type { FC } from 'react'
 import { Switch } from '@/components/ui/switch'
 
 const SwitchsComponent: FC = () => {

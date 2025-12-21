@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import type { FC } from 'react'
 import { Slider } from '@/components/ui/slider'
 
 const SlidersComponent: FC = () => {

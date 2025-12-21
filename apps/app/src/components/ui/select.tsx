@@ -1,11 +1,14 @@
 'use client'
 
 import { useButton } from '@react-aria/button'
-import { FocusScope } from '@react-aria/focus'
 import { useFocus } from '@react-aria/interactions'
 import { useListBox, useOption } from '@react-aria/listbox'
 import { useOverlay } from '@react-aria/overlays'
-import { AriaSelectOptions, HiddenSelect, useSelect } from '@react-aria/select'
+import {
+  type AriaSelectOptions,
+  HiddenSelect,
+  useSelect,
+} from '@react-aria/select'
 import { mergeProps } from '@react-aria/utils'
 import { Item } from '@react-stately/collections'
 import {
@@ -17,15 +20,16 @@ import { ItemProps, Node } from '@react-types/shared'
 import { ChevronDown } from 'lucide-react'
 import {
   createContext,
-  FC,
-  ReactNode,
-  RefObject,
+  type FC,
+  type ReactNode,
+  type RefObject,
   use,
   useRef,
   useState,
 } from 'react'
 import { cn } from '@/utils/ui'
-import { Button, ButtonPropsType } from './button'
+import { Button, type ButtonPropsType } from './button'
+import { Overlay } from './overlay'
 
 type SelectContextType = {
   state: SelectState<object, 'single'>
@@ -143,30 +147,22 @@ const SelectMenu: FC = () => {
   )
 
   return (
-    <FocusScope restoreFocus>
-      <Button
-        asChild
-        onPress={state.close}
-        size={'unknown' as 'base'}
-        type={'unknown' as 'primary'}>
-        <div
-          {...overlayProps}
-          className="fixed bg-gray-500/50 inset-0 scale-100"
-          ref={overlayRef}>
-          <ul
-            {...mergeProps(listBoxProps)}
-            className="w-3/5 py-2 max-h-3/4 overflow-auto bg-background/90 rounded-md ring ring-ring shadow-md select-none"
-            ref={ulRef}>
-            {[...state.collection].map((item) => (
-              <SelectItemImpl
-                item={item}
-                key={item.key}
-              />
-            ))}
-          </ul>
-        </div>
-      </Button>
-    </FocusScope>
+    <Overlay
+      {...overlayProps}
+      onClose={state.close}
+      ref={overlayRef}>
+      <ul
+        {...mergeProps(listBoxProps)}
+        className="w-3/5 py-2 max-h-3/4 overflow-auto bg-background/90 rounded-md ring ring-ring shadow-md select-none"
+        ref={ulRef}>
+        {[...state.collection].map((item) => (
+          <SelectItemImpl
+            item={item}
+            key={item.key}
+          />
+        ))}
+      </ul>
+    </Overlay>
   )
 }
 
